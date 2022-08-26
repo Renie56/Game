@@ -133,9 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 90616868}
   - component: {fileID: 90616872}
-  - component: {fileID: 90616873}
   - component: {fileID: 90616871}
   - component: {fileID: 90616870}
+  - component: {fileID: 90616873}
   - component: {fileID: 90616869}
   m_Layer: 5
   m_Name: first-character
@@ -230,7 +230,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 90616873}
-        m_TargetAssemblyTypeName: Choose_chat, Assembly-CSharp
+        m_TargetAssemblyTypeName: Choose_level, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 90616867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42eef76789a0be844b8590c86373c605, type: 3}
+  m_Script: {fileID: 11500000, guid: fb4ec3000aae3ee4c9a575dac262dda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &147709276
@@ -773,7 +773,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 266508690}
-        m_TargetAssemblyTypeName: Choose_chat, Assembly-CSharp
+        m_TargetAssemblyTypeName: Choose_level, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
@@ -831,7 +831,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 266508684}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42eef76789a0be844b8590c86373c605, type: 3}
+  m_Script: {fileID: 11500000, guid: fb4ec3000aae3ee4c9a575dac262dda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &287127898
@@ -1467,9 +1467,9 @@ GameObject:
   m_Component:
   - component: {fileID: 629903503}
   - component: {fileID: 629903507}
+  - component: {fileID: 629903508}
   - component: {fileID: 629903506}
   - component: {fileID: 629903505}
-  - component: {fileID: 629903504}
   m_Layer: 5
   m_Name: Button-level-2
   m_TagString: Untagged
@@ -1498,18 +1498,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -25}
   m_SizeDelta: {x: 135, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &629903504
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629903502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa47ce7e4a3802e45aa953b9d6f32801, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &629903505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,9 +1542,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 629903504}
-        m_TargetAssemblyTypeName: Level_2_link, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 629903508}
+        m_TargetAssemblyTypeName: Choose_level, Assembly-CSharp
+        m_MethodName: PlayGame_2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1604,6 +1592,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 629903502}
   m_CullTransparentMesh: 1
+--- !u!114 &629903508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629903502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb4ec3000aae3ee4c9a575dac262dda9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &639657511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,7 +2955,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1272254384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42eef76789a0be844b8590c86373c605, type: 3}
+  m_Script: {fileID: 11500000, guid: fb4ec3000aae3ee4c9a575dac262dda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1272254387
@@ -3003,8 +3003,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1272254386}
-        m_TargetAssemblyTypeName: Choose_chat, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_TargetAssemblyTypeName: Choose_level, Assembly-CSharp
+        m_MethodName: PlayGame_2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
