@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class PlayersMoves_Level1 : MonoBehaviour
 {
-    /*[SerializeField] private float speed_right_left = 5;
-    [SerializeField] private float speed_top_bottom = 1;*/
     [SerializeField]  private float speed_right_left = 3;
     [SerializeField]  private float speed_top_bottom = 2;
+    [SerializeField] private LayerMask enemyLayer_1;
+    [SerializeField] private LayerMask enemyLayer_2;
+    public GameObject fight_start_menu;
+    public GameObject fight_start_menu_2;
     private Rigidbody2D body;
+    private BoxCollider2D boxCollider;
     private Animator anim;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
     {
+        fight_start_menu.SetActive(false);
+        fight_start_menu_2.SetActive(false);
         body.transform.rotation = Quaternion.Euler(0, 0, 0);
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticallInput = Input.GetAxis("Vertical");
@@ -44,9 +50,29 @@ public class PlayersMoves_Level1 : MonoBehaviour
             speed_top_bottom = 2;
         }
 
+        if (TouchEnemy_1())
+        {
+            fight_start_menu.SetActive(true);
+        }
+        else if (TouchEnemy_2())
+        {
+            fight_start_menu_2.SetActive(true);
+        }
+
         anim.SetBool("up", verticallInput != 0 && horizontalInput == 0);
         anim.SetBool("run", horizontalInput != 0 && verticallInput != 0);/*Should be Up-Run*/
         anim.SetBool("run", verticallInput != 0 && horizontalInput != 0);/*Should be Bottom-Run*/
         anim.SetBool("run", horizontalInput != 0 && verticallInput == 0);
     }
+    private bool TouchEnemy_1()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, transform.localScale.y), 0.1f, enemyLayer_1); // center point of BoxCast , size, angle, direction, distance, check the layer of the ground, not enemies or oyher things 
+        return raycastHit.collider != null;
+    }
+    private bool TouchEnemy_2()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, transform.localScale.y), 0.1f, enemyLayer_2); // center point of BoxCast , size, angle, direction, distance, check the layer of the ground, not enemies or oyher things 
+        return raycastHit.collider != null;
+    }
 }
+
