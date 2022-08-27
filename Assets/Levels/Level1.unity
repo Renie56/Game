@@ -544,8 +544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9114571711d24314683f97632a9d4890, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed_right_left: 2.5
-  speed_top_bottom: 1.75
+  speed_right_left: 3
+  speed_top_bottom: 2
 --- !u!212 &1049725087
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 1725617162}
   - component: {fileID: 1725617161}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
