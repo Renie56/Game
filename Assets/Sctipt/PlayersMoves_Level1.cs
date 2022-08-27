@@ -44,7 +44,9 @@ public class PlayersMoves_Level1 : MonoBehaviour
             speed_top_bottom = 2;
         }
 
+        anim.SetBool("up", verticallInput != 0 && horizontalInput == 0);
+        anim.SetBool("run", horizontalInput != 0 && verticallInput != 0);/*Should be Up-Run*/
+        anim.SetBool("run", verticallInput != 0 && horizontalInput != 0);/*Should be Bottom-Run*/
         anim.SetBool("run", horizontalInput != 0 && verticallInput == 0);
-        anim.SetBool("up", verticallInput != 0);
     }
 }
