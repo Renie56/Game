@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Menu_dragon : MonoBehaviour
+public class Menu_chamomile : MonoBehaviour
 {
     private Rigidbody2D body;
     private Animator anim;
@@ -36,8 +36,8 @@ public class Menu_dragon : MonoBehaviour
                 i++;
                 statement = false;
                 statement_2 = "forward";
-                anim.SetBool("run", statement != true);
-                transform.localScale = new Vector3(1, 1, 1);
+/*                anim.SetBool("run", statement != true);*/
+                transform.localScale = new Vector3(0.5f, 0.5f, 1);
             }
         }
 
@@ -58,8 +58,8 @@ public class Menu_dragon : MonoBehaviour
                 i--;
                 statement_2 = "backward";
                 statement = false;
-                anim.SetBool("run", statement != true);
-                transform.localScale = new Vector3(-1, 1, 1);
+/*                anim.SetBool("run", statement != true);*/
+                transform.localScale = new Vector3(-0.5f, 0.5f, 1);
             }
         }
         float i_0 = -(20f - (4f * i));
@@ -69,7 +69,7 @@ public class Menu_dragon : MonoBehaviour
             {
                 body.velocity = new Vector3(0, 0, 0);
                 statement = true;
-                anim.SetBool("run", statement != true);
+/*                anim.SetBool("run", statement != true);*/
             }
         }
         else if (statement_2 == "backward")
@@ -78,7 +78,7 @@ public class Menu_dragon : MonoBehaviour
             {
                 body.velocity = new Vector3(0, 0, 0);
                 statement = true;
-                anim.SetBool("run", statement != true);
+/*                anim.SetBool("run", statement != true);*/
             }
         }
 
