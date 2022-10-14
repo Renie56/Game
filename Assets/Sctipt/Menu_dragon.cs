@@ -8,6 +8,7 @@ public class Menu_dragon : MonoBehaviour
     private Animator anim;
     private bool statement = true;
     private bool up_down = true;
+    private string statement_2 = "forward";
     private float i = 0;
     void Start()
     {
@@ -24,51 +25,59 @@ public class Menu_dragon : MonoBehaviour
             {
                 if (up_down == true)
                 {
-                    i++;
                     up_down = false;
-                    statement = false;
                     body.velocity = new Vector3(2.5f, 0.41f, 0);
-                    anim.SetBool("run", body.position.x < 0);
                 }
                 else if (up_down == false)
                 {
-                    i++;
                     up_down = true;
-                    statement = false;
                     body.velocity = new Vector3(2.5f, -0.41f, 0);
-                    anim.SetBool("run", body.position.x < 0);
                 }
+                i++;
+                statement = false;
+                statement_2 = "forward";
+                anim.SetBool("run", statement != true);
             }
         }
 
-        else if (horizontalInput < -0.01f && i > 0)
+        else if (horizontalInput < -0.01f && i > 1)
         {
             if (statement == true)
             {
                 if (up_down == true)
                 {
-                    i--;
                     up_down = false;
-                    statement = false;
                     body.velocity = new Vector3(-2.5f, 0.41f, 0);
-                    anim.SetBool("run", body.position.x < 0);
                 }
                 else if (up_down == false)
                 {
-                    i++;
                     up_down = true;
-                    statement = false;
                     body.velocity = new Vector3(-2.5f, -0.41f, 0);
-                    anim.SetBool("run", body.position.x < 0);
                 }
+                i--;
+                statement_2 = "backward";
+                statement = false;
+                anim.SetBool("run", statement != true);
             }
         }
         float i_0 = -(20f - (4f * i));
-        if (body.position.x > i_0)
+        if (statement_2 == "forward")
         {
-            body.velocity = new Vector3(0, 0, 0);
-            statement = true;
-            anim.SetBool("run", body.position.x < i_0);
+            if (body.position.x > i_0)
+            {
+                body.velocity = new Vector3(0, 0, 0);
+                statement = true;
+                anim.SetBool("run", statement != true);
+            }
+        }
+        else if (statement_2 == "backward")
+        {
+            if (body.position.x < i_0)
+            {
+                body.velocity = new Vector3(0, 0, 0);
+                statement = true;
+                anim.SetBool("run", statement != true);
+            }
         }
 
     }
