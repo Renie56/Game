@@ -20,7 +20,7 @@ public class Menu_dragon : MonoBehaviour
     void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        if (horizontalInput > 0.01f && i < 4 && statement == true && bossmenu.active == false)
+        if (horizontalInput > 0.01f && i < 4 && statement == true)
         {
             if (up_down == true)
             {
@@ -37,9 +37,10 @@ public class Menu_dragon : MonoBehaviour
             statement_2 = "forward";
             anim.SetBool("run", statement != true);
             transform.localScale = new Vector3(1, 1, 1);
+            bossmenu.active = false;
         }
 
-        else if (horizontalInput < -0.01f && i > 1 && statement == true && bossmenu.active == false)
+        else if (horizontalInput < -0.01f && i > 1 && statement == true)
         {
             if (up_down == true)
             {
@@ -56,6 +57,7 @@ public class Menu_dragon : MonoBehaviour
             statement = false;
             anim.SetBool("run", statement != true);
             transform.localScale = new Vector3(-1, 1, 1);
+            bossmenu.active = false;
         }
         float i_0 = -(20f - (4f * i));
         if ((statement_2 == "forward" && body.position.x > i_0 && statement == false) || (statement_2 == "backward" && body.position.x < i_0 && statement == false))
