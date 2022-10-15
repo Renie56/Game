@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Menu_dragon : MonoBehaviour
 {
+    public GameObject bossmenu;
     private Rigidbody2D body;
     private Animator anim;
     private bool statement = true;
@@ -38,6 +39,7 @@ public class Menu_dragon : MonoBehaviour
                 statement_2 = "forward";
                 anim.SetBool("run", statement != true);
                 transform.localScale = new Vector3(1, 1, 1);
+                bossmenu.active = false;
             }
         }
 
@@ -60,27 +62,24 @@ public class Menu_dragon : MonoBehaviour
                 statement = false;
                 anim.SetBool("run", statement != true);
                 transform.localScale = new Vector3(-1, 1, 1);
+                bossmenu.active = false;
             }
         }
         float i_0 = -(20f - (4f * i));
-        if (statement_2 == "forward")
-        {
-            if (body.position.x > i_0)
+        if (statement_2 == "forward" && body.position.x > i_0)
             {
                 body.velocity = new Vector3(0, 0, 0);
                 statement = true;
                 anim.SetBool("run", statement != true);
+                bossmenu.active = true;
             }
-        }
-        else if (statement_2 == "backward")
-        {
-            if (body.position.x < i_0)
+        else if (statement_2 == "backward" && body.position.x < i_0)
             {
                 body.velocity = new Vector3(0, 0, 0);
                 statement = true;
                 anim.SetBool("run", statement != true);
+                bossmenu.active = true;
             }
-        }
 
     }
 }
