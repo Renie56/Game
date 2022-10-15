@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Menu_chamomile : MonoBehaviour
 {
+    public GameObject bossmenu;
     private Rigidbody2D body;
     private Animator anim;
     private bool statement = true;
@@ -19,67 +20,50 @@ public class Menu_chamomile : MonoBehaviour
     void FixedUpdate()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
-        if (horizontalInput > 0.01f && i < 4)
+        if (horizontalInput > 0.01f && i < 4 && statement == true && bossmenu.active == false)
         {
-            if (statement == true)
+            if (up_down == true)
             {
-                if (up_down == true)
-                {
-                    up_down = false;
-                    body.velocity = new Vector3(2.5f, 0.41f, 0);
-                }
-                else if (up_down == false)
-                {
-                    up_down = true;
-                    body.velocity = new Vector3(2.5f, -0.41f, 0);
-                }
-                i++;
-                statement = false;
-                statement_2 = "forward";
-/*                anim.SetBool("run", statement != true);*/
-                transform.localScale = new Vector3(0.5f, 0.5f, 1);
+                up_down = false;
+                body.velocity = new Vector3(2.5f, 0.41f, 0);
             }
+            else if (up_down == false)
+            {
+                up_down = true;
+                body.velocity = new Vector3(2.5f, -0.41f, 0);
+            }
+            i++;
+            statement = false;
+            statement_2 = "forward";
+            /*                anim.SetBool("run", statement != true);*/
+            transform.localScale = new Vector3(0.5f, 0.5f, 1);
         }
 
-        else if (horizontalInput < -0.01f && i > 1)
+        else if (horizontalInput < -0.01f && i > 1 && statement == true && bossmenu.active == false)
         {
-            if (statement == true)
+            if (up_down == true)
             {
-                if (up_down == true)
-                {
-                    up_down = false;
-                    body.velocity = new Vector3(-2.5f, 0.41f, 0);
-                }
-                else if (up_down == false)
-                {
-                    up_down = true;
-                    body.velocity = new Vector3(-2.5f, -0.41f, 0);
-                }
-                i--;
-                statement_2 = "backward";
-                statement = false;
-/*                anim.SetBool("run", statement != true);*/
-                transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+                up_down = false;
+                body.velocity = new Vector3(-2.5f, 0.41f, 0);
             }
+            else if (up_down == false)
+            {
+                up_down = true;
+                body.velocity = new Vector3(-2.5f, -0.41f, 0);
+            }
+            i--;
+            statement_2 = "backward";
+            statement = false;
+            /*                anim.SetBool("run", statement != true);*/
+            transform.localScale = new Vector3(-0.5f, 0.5f, 1);
         }
         float i_0 = -(20f - (4f * i));
-        if (statement_2 == "forward")
+        if ((statement_2 == "forward" && body.position.x > i_0 && statement == false) || (statement_2 == "backward" && body.position.x < i_0 && statement == false))
         {
-            if (body.position.x > i_0)
-            {
-                body.velocity = new Vector3(0, 0, 0);
-                statement = true;
-/*                anim.SetBool("run", statement != true);*/
-            }
-        }
-        else if (statement_2 == "backward")
-        {
-            if (body.position.x < i_0)
-            {
-                body.velocity = new Vector3(0, 0, 0);
-                statement = true;
-/*                anim.SetBool("run", statement != true);*/
-            }
+            body.velocity = new Vector3(0, 0, 0);
+            statement = true;
+            /*                anim.SetBool("run", statement != true);*/
+            bossmenu.active = true;
         }
 
     }

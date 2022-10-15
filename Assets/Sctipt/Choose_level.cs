@@ -7,4 +7,8 @@ public class Choose_level : MonoBehaviour
     {
         SceneManager.LoadScene("Level1");
     }
+    public void ForLevelMenuPlay()
+    {
+        SceneManager.LoadScene("SampleScene");
+    }
 }
