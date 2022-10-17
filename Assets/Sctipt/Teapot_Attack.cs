@@ -21,7 +21,7 @@ public class Teapot_Attack : MonoBehaviour
         anim.SetBool("Attack", statement == true);
         yield return new WaitForSeconds(1);
         anim.SetBool("Attack", statement != true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         StartCoroutine(Delay());
     }
 }
