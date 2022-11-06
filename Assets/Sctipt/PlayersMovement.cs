@@ -7,6 +7,7 @@ public class PlayersMovement : MonoBehaviour
     private Animator anim;
     private bool grounded;
     [SerializeField] private float jumpForce;
+    [SerializeField] public GameObject firepoint;
 
     private void Awake()
     {
@@ -20,11 +21,17 @@ public class PlayersMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-        if (horizontalInput > 0.01f)
+        if (horizontalInput > 0f)
+        {
             transform.localScale = Vector3.one;
+            firepoint.transform.eulerAngles = new Vector3(0, 0, 0);
+        }
 
-        else if (horizontalInput < -0.01f)
+        else if (horizontalInput < 0f)
+        {
             transform.localScale = new Vector3(-1, 1, 1);
+            firepoint.transform.eulerAngles = new Vector3(0, 180, 0);
+        }
 
         if (Input.GetKey(KeyCode.Space) && grounded)
             Jump();

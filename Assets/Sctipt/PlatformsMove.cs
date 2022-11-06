@@ -15,7 +15,7 @@ public class PlatformsMove : MonoBehaviour
     }
     void Update()
     {
-        body.velocity = new Vector2(-3f, body.velocity.y);
+        body.velocity = new Vector2(0f, body.velocity.y);
         if (isGrounded())
         {
             boxCollider.size = new Vector2(boxCollider.size.x - 0.1f, boxCollider.size.y);
