@@ -6,6 +6,8 @@ public class Teapot_Attack : MonoBehaviour
 {
     private Animator anim;
     private bool statement;
+    public Transform Firepoint;
+    public GameObject BulletPref;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -19,9 +21,20 @@ public class Teapot_Attack : MonoBehaviour
     {
         statement = true;
         anim.SetBool("Attack", statement == true);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(DelayForBullet());
+        yield return new WaitForSeconds(0.417f);
+        StartCoroutine(DelayForBullet());
+        yield return new WaitForSeconds(0.417f);
+        StartCoroutine(DelayForBullet());
+        yield return new WaitForSeconds(0.417f);
         anim.SetBool("Attack", statement != true);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         StartCoroutine(Delay());
+    }
+
+    IEnumerator DelayForBullet()
+    {
+        yield return Instantiate(BulletPref, Firepoint.position, Firepoint.rotation);
     }
 }
