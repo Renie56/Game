@@ -2479,6 +2479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Firepoint: {fileID: 309407341}
   BulletPref: {fileID: 1084430867802282169, guid: 7828dfebd8999b84e95040c480484193, type: 3}
+  WindPref: {fileID: 3987237225644288415, guid: c1b0873e3fa65ab42ac6d6cb2a2c6dc9, type: 3}
 --- !u!1 &2086982032
 GameObject:
   m_ObjectHideFlags: 0

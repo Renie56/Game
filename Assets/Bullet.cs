@@ -15,10 +15,13 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Destroy(gameObject);
-        if(hitInfo.name == "Teapot")
+        if (hitInfo.name != "Wind(Clone)")
         {
-            Debug.Log("win");
+            Destroy(gameObject);
+            if (hitInfo.name == "Teapot")
+            {
+                Debug.Log("win");
+            }
         }
     }
 }
