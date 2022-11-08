@@ -5,9 +5,10 @@ using UnityEngine;
 public class BulletTeapot : MonoBehaviour
 {
     [SerializeField] public float speed = 12f;
+    [SerializeField] public float speedAfterDrop = 1f;
     public Rigidbody2D rigidbody;
-    public GameObject BulletPrefShadow;
     private bool afterroof = false;
+    private float afterdrop = 0;
 
     void Start()
     {
@@ -21,12 +22,22 @@ public class BulletTeapot : MonoBehaviour
             rigidbody.velocity = new Vector3(0f, -speed, 0f);
             transform.Rotate(0f, 180f, 0f);
             transform.position = new Vector3(transform.position.x + Random.Range(-16f, -1f), transform.position.y, transform.position.z);
-            Instantiate(BulletPrefShadow, new Vector3(transform.position.x, BulletPrefShadow.transform.position.y, BulletPrefShadow.transform.position.z), Quaternion.Euler(BulletPrefShadow.transform.rotation.x, BulletPrefShadow.transform.rotation.y, BulletPrefShadow.transform.rotation.z));
-            BulletPrefShadow.transform.position = new Vector3(transform.position.x, BulletPrefShadow.transform.position.y, BulletPrefShadow.transform.position.z);
             afterroof = true;
             transform.position = new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z);
         }
-        if (hitInfo.name == "BulletTeapotShadow(Clone)" && afterroof == true)
+        if (hitInfo.name == "Floor" && afterroof == true)
+        {
+            afterdrop = Mathf.Round(Random.Range(1, 3));
+            if (afterdrop == 1)
+            {
+                rigidbody.velocity = new Vector3(speedAfterDrop, 0f, 0f);
+            }
+            else
+            {
+                rigidbody.velocity = new Vector3(-speedAfterDrop, 0f, 0f);
+            }
+        }
+        if ((hitInfo.name == "Main character" || hitInfo.name == "Wall left" || hitInfo.name == "Wall right") && afterroof == true)
         {
             Destroy(gameObject);
             afterroof = false;
