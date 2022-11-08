@@ -10,6 +10,7 @@ public class Teapot_Attack : MonoBehaviour
     public Transform Firepoint2;
     public GameObject BulletPref;
     public GameObject Bullet2Pref;
+    public GameObject Bullet3Pref;
     public GameObject WindPref;
     public GameObject Cloud1Pref;
     public GameObject Cloud2Pref;
@@ -39,9 +40,11 @@ public class Teapot_Attack : MonoBehaviour
             yield return new WaitForSeconds(0.417f);
             StartCoroutine(DelayForBullet());
             yield return new WaitForSeconds(0.417f);
+            StartCoroutine(DelayForBullet());
+            yield return new WaitForSeconds(0.417f);
+            StartCoroutine(DelayForBullet());
+            yield return new WaitForSeconds(0.417f);
             anim.SetBool("Attack", statement != true);
-            yield return new WaitForSeconds(5);
-            StartCoroutine(Delay());
         }
         else if(typeOfAttack <= 8)
         {
@@ -50,8 +53,6 @@ public class Teapot_Attack : MonoBehaviour
             yield return Instantiate(Bullet2Pref, Firepoint2.position, Firepoint2.rotation);
             yield return new WaitForSeconds(1);
             anim.SetBool("Attack2", statement != true);
-            yield return new WaitForSeconds(5);
-            StartCoroutine(Delay());
         }
         else
         {
@@ -59,31 +60,41 @@ public class Teapot_Attack : MonoBehaviour
             yield return new WaitForSeconds(0.35f);
             yield return Instantiate(WindPref, new Vector3(0f, 0f, 0f), WindPref.transform.rotation);
             yield return Instantiate(Cloud1Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            StartCoroutine(DelayForBullet3());
             yield return new WaitForSeconds(0.5f);
             yield return Instantiate(Cloud2Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
             yield return new WaitForSeconds(0.5f);
             yield return Instantiate(Cloud3Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            StartCoroutine(DelayForBullet3());
             yield return new WaitForSeconds(2);
+            StartCoroutine(DelayForBullet3());
             yield return Instantiate(Cloud1Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
             yield return new WaitForSeconds(0.5f);
             yield return Instantiate(Cloud2Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
             yield return new WaitForSeconds(0.5f);
             yield return Instantiate(Cloud3Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            StartCoroutine(DelayForBullet3());
             yield return new WaitForSeconds(2);
+            StartCoroutine(DelayForBullet3());
             yield return Instantiate(Cloud1Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
             yield return new WaitForSeconds(0.5f);
             yield return Instantiate(Cloud2Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
             yield return new WaitForSeconds(0.5f);
             yield return Instantiate(Cloud3Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            StartCoroutine(DelayForBullet3());
             yield return new WaitForSeconds(1);
             anim.SetBool("SuperAttack", statement != true);
-            yield return new WaitForSeconds(5);
-            StartCoroutine(Delay());
         }
+        yield return new WaitForSeconds(Mathf.Round(Random.Range(4, 6)));
+        StartCoroutine(Delay());
     }
 
     IEnumerator DelayForBullet()
     {
         yield return Instantiate(BulletPref, Firepoint.position, Firepoint.rotation);
+    }
+    IEnumerator DelayForBullet3()
+    {
+        yield return Instantiate(Bullet3Pref, Firepoint2.position, Firepoint2.rotation);
     }
 }
