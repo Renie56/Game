@@ -29,7 +29,7 @@ public class Teapot_Attack : MonoBehaviour
         typeOfAttack = Random.Range(0f, 10f);
         statement = true;
         Debug.Log(typeOfAttack);
-        if (typeOfAttack <= 1)
+        if (typeOfAttack <= 5)
         {
             anim.SetBool("Attack", statement == true);
             yield return new WaitForSeconds(0.5f);
@@ -43,7 +43,7 @@ public class Teapot_Attack : MonoBehaviour
             yield return new WaitForSeconds(5);
             StartCoroutine(Delay());
         }
-        else if(typeOfAttack <= 2)
+        else if(typeOfAttack <= 8)
         {
             anim.SetBool("Attack2", statement == true);
             yield return new WaitForSeconds(0.5f);

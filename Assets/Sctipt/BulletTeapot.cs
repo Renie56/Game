@@ -19,6 +19,7 @@ public class BulletTeapot : MonoBehaviour
         if (hitInfo.name == "Roof 2" && afterroof == false)
         {
             rigidbody.velocity = new Vector3(0f, -speed, 0f);
+            transform.Rotate(0f, 180f, 0f);
             transform.position = new Vector3(transform.position.x + Random.Range(-16f, -1f), transform.position.y, transform.position.z);
             Instantiate(BulletPrefShadow, new Vector3(transform.position.x, BulletPrefShadow.transform.position.y, BulletPrefShadow.transform.position.z), Quaternion.Euler(BulletPrefShadow.transform.rotation.x, BulletPrefShadow.transform.rotation.y, BulletPrefShadow.transform.rotation.z));
             BulletPrefShadow.transform.position = new Vector3(transform.position.x, BulletPrefShadow.transform.position.y, BulletPrefShadow.transform.position.z);
