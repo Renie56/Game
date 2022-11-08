@@ -7,8 +7,13 @@ public class Teapot_Attack : MonoBehaviour
     private Animator anim;
     private bool statement;
     public Transform Firepoint;
+    public Transform Firepoint2;
     public GameObject BulletPref;
+    public GameObject Bullet2Pref;
     public GameObject WindPref;
+    public GameObject Cloud1Pref;
+    public GameObject Cloud2Pref;
+    public GameObject Cloud3Pref;
     private float typeOfAttack;
     void Start()
     {
@@ -24,7 +29,7 @@ public class Teapot_Attack : MonoBehaviour
         typeOfAttack = Random.Range(0f, 10f);
         statement = true;
         Debug.Log(typeOfAttack);
-        if (typeOfAttack <= 6)
+        if (typeOfAttack <= 1)
         {
             anim.SetBool("Attack", statement == true);
             yield return new WaitForSeconds(0.5f);
@@ -38,17 +43,13 @@ public class Teapot_Attack : MonoBehaviour
             yield return new WaitForSeconds(5);
             StartCoroutine(Delay());
         }
-        else if(typeOfAttack <= 9)
+        else if(typeOfAttack <= 2)
         {
-            anim.SetBool("Attack", statement == true);
+            anim.SetBool("Attack2", statement == true);
             yield return new WaitForSeconds(0.5f);
-            StartCoroutine(DelayForBullet());
-            yield return new WaitForSeconds(0.417f);
-            StartCoroutine(DelayForBullet());
-            yield return new WaitForSeconds(0.417f);
-            StartCoroutine(DelayForBullet());
-            yield return new WaitForSeconds(0.417f);
-            anim.SetBool("Attack", statement != true);
+            yield return Instantiate(Bullet2Pref, Firepoint2.position, Firepoint2.rotation);
+            yield return new WaitForSeconds(1);
+            anim.SetBool("Attack2", statement != true);
             yield return new WaitForSeconds(5);
             StartCoroutine(Delay());
         }
@@ -57,7 +58,24 @@ public class Teapot_Attack : MonoBehaviour
             anim.SetBool("SuperAttack", statement == true);
             yield return new WaitForSeconds(0.35f);
             yield return Instantiate(WindPref, new Vector3(0f, 0f, 0f), WindPref.transform.rotation);
-            yield return new WaitForSeconds(8);
+            yield return Instantiate(Cloud1Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            yield return Instantiate(Cloud2Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            yield return Instantiate(Cloud3Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            yield return new WaitForSeconds(2);
+            yield return Instantiate(Cloud1Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            yield return Instantiate(Cloud2Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            yield return Instantiate(Cloud3Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            yield return new WaitForSeconds(2);
+            yield return Instantiate(Cloud1Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            yield return Instantiate(Cloud2Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            yield return new WaitForSeconds(0.5f);
+            yield return Instantiate(Cloud3Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
+            yield return new WaitForSeconds(1);
             anim.SetBool("SuperAttack", statement != true);
             yield return new WaitForSeconds(5);
             StartCoroutine(Delay());
