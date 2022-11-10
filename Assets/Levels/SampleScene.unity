@@ -1311,6 +1311,9 @@ MonoBehaviour:
   - {fileID: 1557319386}
   fullHeart: {fileID: 21300000, guid: 4217838d18d06c04fbb38361be7b975f, type: 3}
   emptyHeart: {fileID: 21300000, guid: 2b128a5e4d59a054e9193a83052697e3, type: 3}
+  PlayersMovement: {fileID: 657011244}
+  Dragon_shoot: {fileID: 657011246}
+  animationend: 0
 --- !u!1 &665650672
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,12 @@ public class Player : MonoBehaviour
     public PlayersMovement PlayersMovement;
     public Dragon_shoot Dragon_shoot;
     public bool animationend;
+    private Animator anim;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     void Update()
     {
@@ -36,5 +42,16 @@ public class Player : MonoBehaviour
     public void TakeDamage()
     {
         health--;
+        if(health > 0)
+        {
+            anim.SetBool("damage", true);
+            StartCoroutine(CooldownReset());
+        }
+    }
+
+    IEnumerator CooldownReset()
+    {
+        yield return new WaitForSeconds(0.34f);
+        anim.SetBool("damage", false);
     }
 }
