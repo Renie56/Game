@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public int health = 3;
+    private int superAmount = 0;
     public Image[] hearts;
+    public Image[] supers;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    public Sprite fullSuper;
+    public Sprite emptySuper;
     public PlayersMovement PlayersMovement;
     public Dragon_shoot Dragon_shoot;
     public bool animationend;
@@ -21,15 +25,15 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        foreach(Image heart in hearts)
+        foreach (Image heart in hearts)
         {
             heart.sprite = emptyHeart;
         }
-        for(int i = 0; i<health; i++)
+        for (int i = 0; i < health; i++)
         {
             hearts[i].sprite = fullHeart;
         }
-        if(health <= 0)
+        if (health <= 0)
         {
             PlayersMovement.Death();
             Dragon_shoot.Death();
@@ -38,11 +42,20 @@ public class Player : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        foreach (Image super in supers)
+        {
+            super.sprite = emptySuper;
+        }
+        for (int i = 0; i < superAmount; i++)
+        {
+            supers[i].sprite = fullSuper;
+        }
     }
     public void TakeDamage()
     {
         health--;
-        if(health > 0)
+        if (health > 0)
         {
             anim.SetBool("damage", true);
             StartCoroutine(CooldownReset());
@@ -53,5 +66,10 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(0.34f);
         anim.SetBool("damage", false);
+    }
+
+    public void PickUpSuper()
+    {
+        superAmount++;
     }
 }
