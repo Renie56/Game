@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Teapot_Attack enemy = hitInfo.GetComponent<Teapot_Attack>();
-        if (hitInfo.name != "Wind(Clone)")
+        if (hitInfo.name != "Wind(Clone)" && hitInfo.name != "Super")
         {
             Destroy(gameObject);
             if (enemy != null)

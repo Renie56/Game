@@ -1655,6 +1655,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c0af36aac4c6ec48951317e546df962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Firepoint: {fileID: 0}
+  Firepoint2: {fileID: 0}
+  BulletPref: {fileID: 0}
+  Bullet2Pref: {fileID: 0}
+  Bullet3Pref: {fileID: 0}
+  WindPref: {fileID: 0}
+  Cloud1Pref: {fileID: 0}
+  Cloud2Pref: {fileID: 0}
+  Cloud3Pref: {fileID: 0}
+  health: 100
+  Healthbar: {fileID: 0}
 --- !u!212 &1384137894
 SpriteRenderer:
   m_ObjectHideFlags: 0

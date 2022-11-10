@@ -8,8 +8,9 @@ public class Dragon_shoot : MonoBehaviour
 
     public Transform Firepoint;
     public GameObject BulletPref;
+    public GameObject SuperPref;
     private bool Cooldown = true;
-    private bool death = false;  
+    private bool death = false;
 
 
     void Update()
@@ -31,6 +32,12 @@ public class Dragon_shoot : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Cooldown = true;
+    }
+
+    public void SuperShoot()
+    {
+        Instantiate(SuperPref, new Vector3(0f, 0f, 0f), SuperPref.transform.rotation);
+        Instantiate(BulletPref, Firepoint.position, Firepoint.rotation);
     }
 
     public void Death()

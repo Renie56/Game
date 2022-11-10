@@ -51,7 +51,13 @@ public class Player : MonoBehaviour
         {
             supers[i].sprite = fullSuper;
         }
+        if(superAmount == 3 && Input.GetButtonDown("Fire2"))
+        {
+            Dragon_shoot.SuperShoot();
+            superAmount = 0;
+        }
     }
+
     public void TakeDamage()
     {
         health--;
@@ -70,6 +76,9 @@ public class Player : MonoBehaviour
 
     public void PickUpSuper()
     {
-        superAmount++;
+        if(superAmount < 3)
+        {
+            superAmount++;
+        }
     }
 }

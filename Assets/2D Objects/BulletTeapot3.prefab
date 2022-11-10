@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -5186811494192957075}
   - component: {fileID: 2066155114477454796}
   - component: {fileID: 6021713249625359046}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BulletTeapot3
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -739,7 +739,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2080869452391871911, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
       propertyPath: m_Name
-      value: Super (2)
+      value: Super
       objectReference: {fileID: 0}
     - target: {fileID: 2080869452391871912, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
       propertyPath: m_RootOrder
@@ -796,7 +796,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2080869452391871911, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
       propertyPath: m_Name
-      value: Super (4)
+      value: Super
       objectReference: {fileID: 0}
     - target: {fileID: 2080869452391871912, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
       propertyPath: m_RootOrder
@@ -1492,7 +1492,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2080869452391871911, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
       propertyPath: m_Name
-      value: Super (3)
+      value: Super
       objectReference: {fileID: 0}
     - target: {fileID: 2080869452391871912, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
       propertyPath: m_RootOrder
@@ -1727,6 +1727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Firepoint: {fileID: 1704347971}
   BulletPref: {fileID: 6325742722711357642, guid: 6910c56279e0f7b42b513643d9bf5e21, type: 3}
+  SuperPref: {fileID: 3569939067901512255, guid: 27190307da46dc144bcf51eaa071b76d, type: 3}
 --- !u!114 &657011247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2014,7 +2015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.00001335144, y: 9.999991}
+  m_AnchoredPosition: {x: 0.00001335144, y: 9.999992}
   m_SizeDelta: {x: 70, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &781548574
@@ -2906,7 +2907,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008944550}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 217, z: -5283}
+  m_LocalPosition: {x: -0.3, y: 230, z: -5283}
   m_LocalScale: {x: 1095.1072, y: 0.587, z: 58.7}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4447,7 +4448,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2080869452391871911, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
       propertyPath: m_Name
-      value: Super (1)
+      value: Super
       objectReference: {fileID: 0}
     - target: {fileID: 2080869452391871912, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
       propertyPath: m_RootOrder
