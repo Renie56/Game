@@ -65,9 +65,18 @@ public class BulletTeapot : MonoBehaviour
                 rigidbody.velocity = new Vector3(-speedAfterDrop, 0f, 0f);
             }
         }
-        if ((hitInfo.name == "Main character" || hitInfo.name == "Wall left" || hitInfo.name == "Wall right") && afterroof == true)
+        if ((hitInfo.name == "Wall left" || hitInfo.name == "Wall right") && afterroof == true)
         {
             Destroy(gameObject);
+        }
+        else if(hitInfo.name == "Main character" && afterroof == true)
+        {
+            Player player = hitInfo.GetComponent<Player>();
+            if (player != null)
+            {
+                Destroy(gameObject);
+                player.TakeDamage();
+            }
         }
     }
 }
