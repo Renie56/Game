@@ -30,7 +30,7 @@ public class Teapot_Attack : MonoBehaviour
         typeOfAttack = Random.Range(0f, 10f);
         statement = true;
         Debug.Log(typeOfAttack);
-        if (typeOfAttack <= 5)
+        if (typeOfAttack <= 10)
         {
             anim.SetBool("Attack", statement == true);
             yield return new WaitForSeconds(0.5f);
