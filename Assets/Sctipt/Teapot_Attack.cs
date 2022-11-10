@@ -16,15 +16,24 @@ public class Teapot_Attack : MonoBehaviour
     public GameObject Cloud2Pref;
     public GameObject Cloud3Pref;
     private float typeOfAttack;
+    public int health = 100;
+    public HaelthBar Healthbar;
     void Start()
     {
         anim = GetComponent<Animator>();
         StartCoroutine(Delay());
     }
-    void Update()
+    
+    public void Damage(int damage)
     {
-
+        health -= damage;
+        if(health <= 0)
+        {
+            Destroy(gameObject);
+        }
+        Healthbar.SetHealth(damage);
     }
+
     IEnumerator Delay()
     {
         typeOfAttack = Random.Range(0f, 10f);

@@ -15,12 +15,13 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
+        Teapot_Attack enemy = hitInfo.GetComponent<Teapot_Attack>();
         if (hitInfo.name != "Wind(Clone)")
         {
             Destroy(gameObject);
-            if (hitInfo.name == "Teapot")
+            if (enemy != null)
             {
-                Debug.Log("win");
+                enemy.Damage(10);
             }
         }
     }
