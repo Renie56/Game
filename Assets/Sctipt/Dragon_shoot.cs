@@ -9,11 +9,12 @@ public class Dragon_shoot : MonoBehaviour
     public Transform Firepoint;
     public GameObject BulletPref;
     private bool Cooldown = true;
+    private bool death = false;  
 
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && Cooldown == true)
+        if (Input.GetButtonDown("Fire1") && Cooldown == true && death == false)
         {
             Shoot();
         }
@@ -30,5 +31,10 @@ public class Dragon_shoot : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         Cooldown = true;
+    }
+
+    public void Death()
+    {
+        death = true;
     }
 }

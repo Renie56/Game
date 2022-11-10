@@ -6,6 +6,7 @@ public class PlayersMovement : MonoBehaviour
     private Rigidbody2D body;
     private Animator anim;
     private bool grounded;
+    private bool die;
     [SerializeField] private float jumpForce;
     [SerializeField] public GameObject firepoint;
 
@@ -17,27 +18,34 @@ public class PlayersMovement : MonoBehaviour
 
     private void Update()
     {
-        body.transform.rotation = Quaternion.Euler(0, 0, 0);
-        float horizontalInput = Input.GetAxis("Horizontal");
-        body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
-
-        if (horizontalInput > 0f)
+        if (die != true)
         {
-            transform.localScale = Vector3.one;
-            firepoint.transform.eulerAngles = new Vector3(0, 0, 0);
-        }
+            body.transform.rotation = Quaternion.Euler(0, 0, 0);
+            float horizontalInput = Input.GetAxis("Horizontal");
+            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-        else if (horizontalInput < 0f)
+            if (horizontalInput > 0f)
+            {
+                transform.localScale = Vector3.one;
+                firepoint.transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+
+            else if (horizontalInput < 0f)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                firepoint.transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+
+            if (Input.GetKey(KeyCode.Space) && grounded)
+                Jump();
+
+            anim.SetBool("run", horizontalInput != 0);
+            anim.SetBool("grounded", grounded);
+        }
+        else
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            firepoint.transform.eulerAngles = new Vector3(0, 180, 0);
+            anim.SetBool("die", die);
         }
-
-        if (Input.GetKey(KeyCode.Space) && grounded)
-            Jump();
-
-        anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", grounded);
     }
 
     private void Jump()
@@ -52,5 +60,10 @@ public class PlayersMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
       
             grounded = true;
+    }
+
+    public void Death()
+    {
+        die = true;
     }
 }

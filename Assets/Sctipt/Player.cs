@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
+    public PlayersMovement PlayersMovement;
+    public Dragon_shoot Dragon_shoot;
+    public bool animationend;
 
     void Update()
     {
@@ -20,9 +23,14 @@ public class Player : MonoBehaviour
         {
             hearts[i].sprite = fullHeart;
         }
-        if(health == 0)
+        if(health <= 0)
         {
-            Debug.Log("You died");
+            PlayersMovement.Death();
+            Dragon_shoot.Death();
+        }
+        if(animationend == true)
+        {
+            Destroy(gameObject);
         }
     }
     public void TakeDamage()

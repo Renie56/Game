@@ -13,9 +13,18 @@ public class Bullet_Teapot_2 : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        if (hitInfo.name == "Wall left" || hitInfo.name == "Main character")
+        if (hitInfo.name == "Wall left")
         {
             Destroy(gameObject);
+        }
+        else if (hitInfo.name == "Main character")
+        {
+            Player player = hitInfo.GetComponent<Player>();
+            if (player != null)
+            {
+                Destroy(gameObject);
+                player.TakeDamage();
+            }
         }
     }
 }
