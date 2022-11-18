@@ -39,7 +39,7 @@ public class Teapot_Attack : MonoBehaviour
         typeOfAttack = Random.Range(0f, 10f);
         statement = true;
         Debug.Log(typeOfAttack);
-        if (typeOfAttack <= 5)
+        if (typeOfAttack <= 0)
         {
             anim.SetBool("Attack", statement == true);
             yield return new WaitForSeconds(0.5f);
@@ -55,18 +55,18 @@ public class Teapot_Attack : MonoBehaviour
             yield return new WaitForSeconds(0.417f);
             anim.SetBool("Attack", statement != true);
         }
-        else if(typeOfAttack <= 8)
+        else if(typeOfAttack <= 0)
         {
             anim.SetBool("Attack2", statement == true);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.65f);
             yield return Instantiate(Bullet2Pref, Firepoint2.position, Firepoint2.rotation);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.85f);
             anim.SetBool("Attack2", statement != true);
         }
         else
         {
             anim.SetBool("SuperAttack", statement == true);
-            yield return new WaitForSeconds(0.35f);
+            yield return new WaitForSeconds(1);
             yield return Instantiate(WindPref, new Vector3(0f, 0f, 0f), WindPref.transform.rotation);
             yield return Instantiate(Cloud1Pref, new Vector3(3.3f, 1f, 0f), WindPref.transform.rotation);
             StartCoroutine(DelayForBullet3());
