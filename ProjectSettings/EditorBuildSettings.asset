@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Level1_chamomile.unity
     guid: f318d5e72d5a641498c88d583d82363b
+  - enabled: 1
+    path: Assets/Levels/DeadScene.unity
+    guid: ca00825387238234bbe96b8bacb674e4
   m_configObjects: {}

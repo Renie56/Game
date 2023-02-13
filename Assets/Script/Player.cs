@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class Player : MonoBehaviour
         {
             PlayersMovement.Death();
             Dragon_shoot.Death();
+            SceneManager.LoadScene("DeadScene");
+
         }
         if(animationend == true)
         {
