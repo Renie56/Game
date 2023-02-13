@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Teapot_Attack : MonoBehaviour
 {
@@ -30,6 +32,7 @@ public class Teapot_Attack : MonoBehaviour
         if(health <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene("WinScene");
         }
         Healthbar.SetHealth(damage);
     }
