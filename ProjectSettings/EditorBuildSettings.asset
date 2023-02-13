@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/DeadScene.unity
     guid: ca00825387238234bbe96b8bacb674e4
+  - enabled: 1
+    path: Assets/Levels/Win.unity
+    guid: 28028c1be3d124a4db5a90ed9391a19b
   m_configObjects: {}
