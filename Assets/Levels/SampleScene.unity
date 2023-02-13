@@ -1807,8 +1807,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 80, y: 40}
+  m_AnchoredPosition: {x: 39.27, y: 1.3}
+  m_SizeDelta: {x: 101.46, y: 50.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &706032282
 MonoBehaviour:
@@ -1830,7 +1830,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3d43da35d9c59c349afa3dce9cfeb85b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd4ed89dac4f4cc43bbb197e89268947, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3341,7 +3341,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 20.48, y: 10.24}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 20.48, y: 10.24}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -3390,12 +3390,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 95e60588fa3a07c43b1399208e5c08d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: dd4ed89dac4f4cc43bbb197e89268947, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 20.48, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
