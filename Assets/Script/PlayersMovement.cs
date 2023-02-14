@@ -5,19 +5,26 @@ public class PlayersMovement : MonoBehaviour
     [SerializeField] private float speed;
     private Rigidbody2D body;
     private Animator anim;
+    private BoxCollider2D boxCollider;
     private bool grounded;
     private bool die;
     [SerializeField] private float jumpForce;
     [SerializeField] public GameObject firepoint;
+    [SerializeField] private LayerMask Stick;
 
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     private void Update()
     {
+        if (isSticked()|| isSticked2())
+        {
+            body.velocity = new Vector2(body.velocity.x, (-1.2f)*speed);
+        }
         if (die != true)
         {
             body.transform.rotation = Quaternion.Euler(0, 0, 0);
@@ -65,5 +72,16 @@ public class PlayersMovement : MonoBehaviour
     public void Death()
     {
         die = true;
+    }
+
+    private bool isSticked()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.left, 0.1f, Stick);
+        return raycastHit.collider != null;
+    }
+    private bool isSticked2()
+    {
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0f, Vector2.right, 0.1f, Stick);
+        return raycastHit.collider != null;
     }
 }
