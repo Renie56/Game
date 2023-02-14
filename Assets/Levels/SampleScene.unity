@@ -1586,7 +1586,7 @@ Transform:
   m_GameObject: {fileID: 657011239}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -7.18, y: -1.55, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1704347971}
@@ -1609,9 +1609,12 @@ MonoBehaviour:
   speed: 5
   jumpForce: 1.7
   firepoint: {fileID: 1704347970}
+  Stick:
+    serializedVersion: 2
+    m_Bits: 8640
 --- !u!95 &657011245
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1628,7 +1631,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &657011246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1771,7 +1774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WallLeft:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8448
 --- !u!1 &706032280
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,7 +2037,7 @@ GameObject:
   - component: {fileID: 834560486}
   - component: {fileID: 834560485}
   - component: {fileID: 834560484}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Wall right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2136,7 +2139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -151, y: 0}
+  m_AnchoredPosition: {x: 0.000030517578, y: 0}
   m_SizeDelta: {x: 1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &916777744
@@ -3305,7 +3308,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &2009358312
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3322,7 +3325,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &2009358313
 BoxCollider2D:
   m_ObjectHideFlags: 0

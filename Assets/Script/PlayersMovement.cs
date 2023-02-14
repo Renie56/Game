@@ -21,7 +21,7 @@ public class PlayersMovement : MonoBehaviour
 
     private void Update()
     {
-        if (isSticked()|| isSticked2())
+        if ((isSticked()|| isSticked2()))
         {
             body.velocity = new Vector2(body.velocity.x, (-1.2f)*speed);
         }
@@ -33,13 +33,13 @@ public class PlayersMovement : MonoBehaviour
 
             if (horizontalInput > 0f)
             {
-                transform.localScale = Vector3.one;
+                transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                 firepoint.transform.eulerAngles = new Vector3(0, 0, 0);
             }
 
             else if (horizontalInput < 0f)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-0.7f, 0.7f, 0.7f);
                 firepoint.transform.eulerAngles = new Vector3(0, 180, 0);
             }
 
