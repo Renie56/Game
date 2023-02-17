@@ -8,7 +8,7 @@ public class PlatformsMove : MonoBehaviour
     private BoxCollider2D boxCollider;
     [SerializeField] private LayerMask WallLeft;
     [SerializeField] private LayerMask WallRight;
-    bool afterwall = false;
+    bool touched = false;
     public GameObject[] supersList;
     int k = 0;
     void Start()
@@ -21,7 +21,7 @@ public class PlatformsMove : MonoBehaviour
         body.velocity = new Vector2(-1f, 0f);
         if (isTouch())
         {
-            afterwall = false;
+            touched = false;
             boxCollider.size = new Vector2(boxCollider.size.x - 0.1f, boxCollider.size.y);
             boxCollider.offset = new Vector2(boxCollider.offset.x + 0.1f / 2, boxCollider.offset.y);
             k++;
@@ -33,8 +33,12 @@ public class PlatformsMove : MonoBehaviour
         if (isTouch2())
         {
             boxCollider.offset = new Vector2(boxCollider.offset.x - 0.1f/2, boxCollider.offset.y);
-/*            Debug.Log("Yes");*/
-            StartCoroutine(RegenerateCollider());
+            Debug.Log("Yes");
+            if(touched == false)
+            {
+                StartCoroutine(RegenerateCollider());
+                touched = true;
+            }
         }
 /*        Debug.Log(boxCollider.size.x <= (0.1f * k));*/
     }
@@ -55,17 +59,17 @@ public class PlatformsMove : MonoBehaviour
     IEnumerator RegenerateCollider()
     {
         yield return new WaitForSeconds(0.1f);
-/*        Debug.Log(0.1f * k);*/
-        boxCollider.offset = new Vector2(boxCollider.offset.x + 0.1f / 10, boxCollider.offset.y);
-        boxCollider.size = new Vector2(boxCollider.size.x + 0.1f / 5, boxCollider.size.y);
-        if (boxCollider.size.x <= (0.1f * k))
+        Debug.Log(0.1f * k);
+        boxCollider.offset = new Vector2(boxCollider.offset.x + 0.1f / 2, boxCollider.offset.y);
+        boxCollider.size = new Vector2(boxCollider.size.x + 0.1f, boxCollider.size.y);
+        if (boxCollider.size.x <= (0.1f * (k-1)))
         {
             StartCoroutine(RegenerateCollider());
         }
         else{
             k = 0;
-            boxCollider.offset = new Vector2(boxCollider.offset.x - 0.025f / 2, boxCollider.offset.y);
-            boxCollider.size = new Vector2(boxCollider.size.x - 0.025f, boxCollider.size.y);
+            boxCollider.offset = new Vector2(boxCollider.offset.x + 0.05f , boxCollider.offset.y);
+            touched = false;
         }
     }
     private bool isTouch()
