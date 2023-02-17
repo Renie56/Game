@@ -1782,7 +1782,7 @@ MonoBehaviour:
     m_Bits: 256
   WallRight:
     serializedVersion: 2
-    m_Bits: 8192
+    m_Bits: 8256
   supersList:
   - {fileID: 791376366}
   - {fileID: 219983034}
@@ -1997,8 +1997,10 @@ MonoBehaviour:
     m_Bits: 256
   WallRight:
     serializedVersion: 2
-    m_Bits: 8192
-  supersList: []
+    m_Bits: 8256
+  supersList:
+  - {fileID: 821378020}
+  - {fileID: 1750735283}
 --- !u!50 &798481914
 Rigidbody2D:
   serializedVersion: 4
@@ -2046,6 +2048,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5.66, y: 0.14}
   m_EdgeRadius: 0
+--- !u!1 &821378020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2080869452391871911, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
+  m_PrefabInstance: {fileID: 2107524601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &834560483
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2166,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -149.8, y: 0}
+  m_AnchoredPosition: {x: -147.5, y: 0}
   m_SizeDelta: {x: 1, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &916777744
@@ -2899,6 +2906,11 @@ Transform:
   m_Father: {fileID: 657011243}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1750735283 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2080869452391871911, guid: 1a48d41716f5844418321046e73ee1aa, type: 3}
+  m_PrefabInstance: {fileID: 349505051}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1800069665
 GameObject:
   m_ObjectHideFlags: 0
@@ -3353,13 +3365,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009358311}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.28216, y: 0.21870363}
+  m_Offset: {x: 1.5232744, y: 0.21870375}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3370,7 +3382,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.7220306, y: 7.1884565}
+  m_Size: {x: 0.1854682, y: 7.1884565}
   m_EdgeRadius: 0
 --- !u!212 &2009358314
 SpriteRenderer:
@@ -3448,7 +3460,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2009358311}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c0af36aac4c6ec48951317e546df962, type: 3}
   m_Name: 
