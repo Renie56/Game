@@ -33,14 +33,13 @@ public class PlatformsMove : MonoBehaviour
         if (isTouch2())
         {
             boxCollider.offset = new Vector2(boxCollider.offset.x - 0.1f/2, boxCollider.offset.y);
-            Debug.Log("Yes");
+/*            Debug.Log("Yes");*/
             if(touched == false)
             {
                 StartCoroutine(RegenerateCollider());
                 touched = true;
             }
         }
-/*        Debug.Log(boxCollider.size.x <= (0.1f * k));*/
     }
     IEnumerator Delay()
     {
@@ -59,7 +58,7 @@ public class PlatformsMove : MonoBehaviour
     IEnumerator RegenerateCollider()
     {
         yield return new WaitForSeconds(0.1f);
-        Debug.Log(0.1f * k);
+/*        Debug.Log(0.1f * k);*/
         boxCollider.offset = new Vector2(boxCollider.offset.x + 0.1f / 2, boxCollider.offset.y);
         boxCollider.size = new Vector2(boxCollider.size.x + 0.1f, boxCollider.size.y);
         if (boxCollider.size.x <= (0.1f * (k-1)))
