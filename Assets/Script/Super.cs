@@ -10,7 +10,7 @@ public class Super : MonoBehaviour
         if (player != null)
         {
             player.PickUpSuper();
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

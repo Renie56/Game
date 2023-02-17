@@ -9,6 +9,7 @@ public class PlatformsMove : MonoBehaviour
     [SerializeField] private LayerMask WallLeft;
     [SerializeField] private LayerMask WallRight;
     bool afterwall = false;
+    public GameObject[] supersList;
     int k = 0;
     void Start()
     {
@@ -32,10 +33,10 @@ public class PlatformsMove : MonoBehaviour
         if (isTouch2())
         {
             boxCollider.offset = new Vector2(boxCollider.offset.x - 0.1f/2, boxCollider.offset.y);
-            Debug.Log("Yes");
+/*            Debug.Log("Yes");*/
             StartCoroutine(RegenerateCollider());
         }
-        Debug.Log(boxCollider.size.x <= (0.1f * k));
+/*        Debug.Log(boxCollider.size.x <= (0.1f * k));*/
     }
     IEnumerator Delay()
     {
@@ -43,11 +44,18 @@ public class PlatformsMove : MonoBehaviour
         body.position = new Vector2(8f, body.position.y);
         boxCollider.size = new Vector2(0.1f, boxCollider.size.y);
         boxCollider.offset = new Vector2(boxCollider.offset.x - (0.1f * (k-3)), boxCollider.offset.y);
+        foreach (GameObject supers in supersList)
+        {
+            if (supers.activeSelf == false)
+            {
+                supers.SetActive(true);
+            }
+        }
     }
     IEnumerator RegenerateCollider()
     {
         yield return new WaitForSeconds(0.1f);
-        Debug.Log(0.1f * k);
+/*        Debug.Log(0.1f * k);*/
         boxCollider.offset = new Vector2(boxCollider.offset.x + 0.1f / 10, boxCollider.offset.y);
         boxCollider.size = new Vector2(boxCollider.size.x + 0.1f / 5, boxCollider.size.y);
         if (boxCollider.size.x <= (0.1f * k))
