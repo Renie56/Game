@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Dragon_shoot : MonoBehaviour
 {
 
+    [SerializeField] public GameObject firepoint;
     public Transform Firepoint;
     public GameObject BulletPref;
     public GameObject SuperPref;
@@ -37,19 +38,9 @@ public class Dragon_shoot : MonoBehaviour
 
     public void SuperShoot()
     {
-        /*        RaycastHit2D hitInfo =  Physics2D.Raycast(Firepoint.position, Firepoint.right);
-                if (hitInfo)
-                {
-                    Teapot_Attack enemy = hitInfo.transform.GetComponent<Teapot_Attack>();
-                    if(enemy != null)
-                    {
-                        enemy.Damage(16);
-                        Instantiate(SuperPrefLine, new Vector3(0f, 0f, 0f), SuperPref.transform.rotation);
-                    }
-                }*/
-
-/*        Instantiate(SuperPref, new Vector3(0f, 0f, 0f), SuperPref.transform.rotation);*/
-        Instantiate(BulletPref, Firepoint.position, Firepoint.rotation);
+        Cooldown = false;
+        Instantiate(SuperPref, new Vector3(-11, 2, 0), Quaternion.Euler(0f, 0f, 0f));
+        StartCoroutine(CooldownReset());
     }
 
     public void Death()
