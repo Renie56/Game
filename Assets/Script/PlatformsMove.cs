@@ -9,7 +9,6 @@ public class PlatformsMove : MonoBehaviour
     [SerializeField] private LayerMask WallLeft;
     [SerializeField] private LayerMask WallRight;
     bool touched = false;
-    public GameObject[] supersList;
     int k = 0;
     void Start()
     {
@@ -47,13 +46,6 @@ public class PlatformsMove : MonoBehaviour
         body.position = new Vector2(8f, body.position.y);
         boxCollider.size = new Vector2(0.1f, boxCollider.size.y);
         boxCollider.offset = new Vector2(boxCollider.offset.x - (0.1f * (k-3)), boxCollider.offset.y);
-        foreach (GameObject supers in supersList)
-        {
-            if (supers.activeSelf == false)
-            {
-                supers.SetActive(true);
-            }
-        }
     }
     IEnumerator RegenerateCollider()
     {

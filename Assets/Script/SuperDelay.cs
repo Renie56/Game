@@ -4,27 +4,25 @@ using UnityEngine;
 
 public class SuperDelay : MonoBehaviour
 {
-    public GameObject[] supersList;
+    public GameObject super;
     int i = 0;
     int k = 0;
+    bool delayStarted = false;
 
     private void Update()
     {
-        while (i < supersList.Length)
+        if (super.activeSelf == false && delayStarted == false)
         {
-            if (supersList[i].activeSelf == false)
-            {
-                k = i;
-                StartCoroutine(Delay());
-            }
-            i += 1;
+            delayStarted = true;
+            StartCoroutine(Delay());
         }
-        i = 0;
     }
 
     IEnumerator Delay()
     {
         yield return new WaitForSeconds(Mathf.Round(Random.Range(10, 30)));
-        supersList[k].SetActive(true);
+        super.SetActive(true);
+        delayStarted = false;
+        Debug.Log("a");
     }
 }
