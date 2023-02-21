@@ -71,6 +71,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void TakeHealth()
+    {
+        if (health > 0 && health < 3)
+        {
+            health++;
+            anim.SetBool("healthing", true);
+            StartCoroutine(CooldownReset());
+        }
+    }
+
     IEnumerator CooldownReset()
     {
         yield return new WaitForSeconds(0.34f);

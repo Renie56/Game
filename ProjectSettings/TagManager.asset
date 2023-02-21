@@ -7,12 +7,11 @@ TagManager:
   - Ground
   - Enemy_1
   - Enemy_2
-  - Object1
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - HealthBuf
   - Water
   - UI
   - Enemy_1
