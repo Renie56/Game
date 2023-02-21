@@ -43,7 +43,7 @@ public class BulletTeapot : MonoBehaviour
         }
         else if((hitInfo.name == "Platforms" || hitInfo.name == "Platforms (1)") && afterroof == true && afterland == false)
         {
-            rigidbody.gravityScale = 1f;
+            rigidbody.velocity = new Vector3(0f, -speed, 0f);
             afterdrop = Mathf.Round(Random.Range(1, 3));
             if (afterdrop == 1)
             {
