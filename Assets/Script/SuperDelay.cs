@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SuperDelay : MonoBehaviour
 {
+    private Animator anim;
+    private BoxCollider2D boxCollider;
     public GameObject super;
-    int i = 0;
-    int k = 0;
     bool delayStarted = false;
 
     private void Update()
@@ -22,7 +22,9 @@ public class SuperDelay : MonoBehaviour
     {
         yield return new WaitForSeconds(Mathf.Round(Random.Range(10, 30)));
         super.SetActive(true);
+        anim.SetBool("Appeare", delayStarted == true);
+        yield return new WaitForSeconds(0.7f);
+        anim.SetBool("Appeare", delayStarted != true);
         delayStarted = false;
-        Debug.Log("a");
     }
 }
