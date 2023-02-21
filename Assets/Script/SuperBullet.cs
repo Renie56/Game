@@ -15,13 +15,18 @@ public class SuperBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
         Teapot_Attack enemy = hitInfo.GetComponent<Teapot_Attack>();
-        if (hitInfo.name != "Wind(Clone)" && hitInfo.name != "Super")
+        if (hitInfo.name == "Teapot")
         {
-            Destroy(gameObject);
+            StartCoroutine(Delay());
             if (enemy != null)
             {
                 enemy.Damage(16);
             }
         }
+    }
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(5);
+        Destroy(gameObject);
     }
 }
