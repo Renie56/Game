@@ -17,7 +17,7 @@ public class PlatformsMove : MonoBehaviour
     }
     void Update()
     {
-        body.velocity = new Vector2(-1f, 0f);
+        body.velocity = new Vector2(-2f, 0f);
         if (isTouch())
         {
             touched = false;
@@ -45,7 +45,7 @@ public class PlatformsMove : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1, 5));
         body.position = new Vector2(8f, body.position.y);
         boxCollider.size = new Vector2(0.1f, boxCollider.size.y);
-        boxCollider.offset = new Vector2(boxCollider.offset.x - (0.1f * (k-3)), boxCollider.offset.y);
+        boxCollider.offset = new Vector2(boxCollider.offset.x - (0.1f * (k-4)), boxCollider.offset.y);
     }
     IEnumerator RegenerateCollider()
     {
