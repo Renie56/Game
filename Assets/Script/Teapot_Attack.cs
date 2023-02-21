@@ -10,6 +10,7 @@ public class Teapot_Attack : MonoBehaviour
     private bool statement;
     public Transform Firepoint;
     public Transform Firepoint2;
+    public Transform Firepoint3;
     public GameObject BulletPref;
     public GameObject Bullet2Pref;
     public GameObject Bullet3Pref;
@@ -44,6 +45,14 @@ public class Teapot_Attack : MonoBehaviour
         Debug.Log(typeOfAttack);
         if (typeOfAttack <= 5)
         {
+            anim.SetBool("Attack2", statement == true);
+            yield return new WaitForSeconds(0.65f);
+            yield return Instantiate(Bullet2Pref, Firepoint2.position, Firepoint2.rotation);
+            yield return new WaitForSeconds(0.85f);
+            anim.SetBool("Attack2", statement != true);
+        }
+        else if(typeOfAttack <= 8)
+        {
             anim.SetBool("Attack", statement == true);
             yield return new WaitForSeconds(0.5f);
             StartCoroutine(DelayForBullet());
@@ -57,14 +66,6 @@ public class Teapot_Attack : MonoBehaviour
             StartCoroutine(DelayForBullet());
             yield return new WaitForSeconds(0.417f);
             anim.SetBool("Attack", statement != true);
-        }
-        else if(typeOfAttack <= 8)
-        {
-            anim.SetBool("Attack2", statement == true);
-            yield return new WaitForSeconds(0.65f);
-            yield return Instantiate(Bullet2Pref, Firepoint2.position, Firepoint2.rotation);
-            yield return new WaitForSeconds(0.85f);
-            anim.SetBool("Attack2", statement != true);
         }
         else
         {
@@ -107,6 +108,6 @@ public class Teapot_Attack : MonoBehaviour
     }
     IEnumerator DelayForBullet3()
     {
-        yield return Instantiate(Bullet3Pref, Firepoint2.position, Firepoint2.rotation);
+        yield return Instantiate(Bullet3Pref, Firepoint3.position, Firepoint3.rotation);
     }
 }

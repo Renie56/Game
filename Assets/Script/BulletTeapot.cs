@@ -14,6 +14,7 @@ public class BulletTeapot : MonoBehaviour
     void Start()
     {
         rigidbody.velocity = new Vector3(0f, speed, 0f);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 180);
     }
 
     void OnTriggerEnter2D(Collider2D hitInfo)
@@ -25,6 +26,7 @@ public class BulletTeapot : MonoBehaviour
             transform.position = new Vector3(GameObject.Find("Main character").transform.position.x, transform.position.y, transform.position.z);
             afterroof = true;
             transform.position = new Vector3(transform.position.x, transform.position.y + 5f, transform.position.z);
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 180);
         }
         if (hitInfo.name == "Floor" && afterroof == true && afterland == false)
         {
@@ -39,7 +41,7 @@ public class BulletTeapot : MonoBehaviour
             }
             afterland = true;
         }
-        else if((hitInfo.name == "Platform" || hitInfo.name == "Platform (1)" || hitInfo.name == "Platform (2)" || hitInfo.name == "Platform (3)" || hitInfo.name == "Platform (4)") && afterroof == true && afterland == false)
+        else if((hitInfo.name == "Platforms" || hitInfo.name == "Platforms (1)") && afterroof == true && afterland == false)
         {
             rigidbody.gravityScale = 1f;
             afterdrop = Mathf.Round(Random.Range(1, 3));

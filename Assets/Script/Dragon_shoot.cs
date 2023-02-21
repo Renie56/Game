@@ -32,7 +32,7 @@ public class Dragon_shoot : MonoBehaviour
 
     IEnumerator CooldownReset()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.3f);
         Cooldown = true;
     }
 
