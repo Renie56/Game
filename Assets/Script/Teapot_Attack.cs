@@ -31,7 +31,7 @@ public class Teapot_Attack : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             SceneManager.LoadScene("WinScene");
         }
         Healthbar.SetHealth(damage);
