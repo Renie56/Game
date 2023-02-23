@@ -17,7 +17,7 @@ public class PlatformsMove : MonoBehaviour
     }
     void Update()
     {
-        body.velocity = new Vector2(-2f, 0f);
+        body.velocity = new Vector2(-1.4f, 0f);
         if (isTouch())
         {
             touched = false;

@@ -8,8 +8,6 @@ public class HealthHeart : MonoBehaviour
 {
     [SerializeField] public float speed = 5f;
     public Rigidbody2D rigidbody;
-    private bool afterland = false;
-    private float afterdrop = 0;
 
     void Start()
     {
